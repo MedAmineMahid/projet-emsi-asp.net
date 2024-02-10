@@ -7,7 +7,7 @@
 namespace WebApplication2.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,8 @@ namespace WebApplication2.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Price = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
+                    CurrentImageNumber = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,12 +29,12 @@ namespace WebApplication2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "Name", "Price" },
+                columns: new[] { "Id", "CurrentImageNumber", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Product 1", 10.99m },
-                    { 2, "Product 2", 19.99m },
-                    { 3, "Product 3", 15.49m }
+                    { 1, 0, "Product 1", 10.99m },
+                    { 2, 0, "Product 2", 19.99m },
+                    { 3, 0, "Product 3", 15.49m }
                 });
         }
 

@@ -23,6 +23,15 @@ namespace WebApplication2.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
+            var products = await _context.Product.ToListAsync();
+
+            // Rotate the image number for each product
+            foreach (var product in products)
+            {
+                var random = new Random();
+                product.CurrentImageNumber = random.Next(1, 4);
+            }
+
             return View(await _context.Product.ToListAsync());
         }
 
@@ -168,10 +177,12 @@ namespace WebApplication2.Controllers
             {
                 return NotFound();
             }
+            var random = new Random();
+            product.CurrentImageNumber = random.Next(1, 4);
 
             var cart = GetCart();
-            cart.AddToCart(product);
 
+            cart.AddToCart(product);
             SaveCart(cart);
 
             return RedirectToAction(nameof(Index));
@@ -180,6 +191,8 @@ namespace WebApplication2.Controllers
         // GET: Cart
         public IActionResult ViewCart()
         {
+            
+
             var cart = GetCart();
             return View(cart);
         }

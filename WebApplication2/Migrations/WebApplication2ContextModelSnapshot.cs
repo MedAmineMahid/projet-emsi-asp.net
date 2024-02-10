@@ -22,6 +22,9 @@ namespace WebApplication2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CurrentImageNumber")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
@@ -36,18 +39,21 @@ namespace WebApplication2.Migrations
                         new
                         {
                             Id = 1,
+                            CurrentImageNumber = 0,
                             Name = "Product 1",
                             Price = 10.99m
                         },
                         new
                         {
                             Id = 2,
+                            CurrentImageNumber = 0,
                             Name = "Product 2",
                             Price = 19.99m
                         },
                         new
                         {
                             Id = 3,
+                            CurrentImageNumber = 0,
                             Name = "Product 3",
                             Price = 15.49m
                         });
