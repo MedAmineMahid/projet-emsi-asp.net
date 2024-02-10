@@ -3,10 +3,7 @@ WebApplication2
 
 Prérequis
 
-Assurez-vous d'avoir les éléments 
-
-suivants installés sur votre machine :
-
+Assurez-vous d'avoir les éléments suivants:
 
 .NET SDK 8.
 
