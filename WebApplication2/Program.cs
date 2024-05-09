@@ -10,17 +10,16 @@ builder.Services.AddDbContext<WebApplication2Context>(options =>
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+builder.Services.AddDistributedMemoryCache(); 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // You can set the session timeout as needed
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -28,7 +27,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-// other configurations
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
